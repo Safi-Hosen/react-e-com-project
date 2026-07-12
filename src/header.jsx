@@ -9,7 +9,7 @@ function Header() {
             <Link to="/">ShopHub</Link>
           </div>
           <ul className="flex text-black gap-5 font-medium justify-center items-center">
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
             <Link to="/auth">Auth</Link>
             <Link to="/checkout">Checkout</Link>
           </ul>
