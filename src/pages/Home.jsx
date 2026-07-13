@@ -1,4 +1,4 @@
-import { getProducts } from "./products";
+import { getProducts } from "../data/products";
 import ProductCard from "./ProductCard";
 
 export default function Home() {

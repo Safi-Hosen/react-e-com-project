@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+// import { useContext } from "react";
+import { useAuth } from "./auth-context/AuthContext";
 
 function Header() {
+  const { user, logout } = useAuth();
   return (
     <>
       <header className="bg-gray-400 ">
@@ -10,17 +13,28 @@ function Header() {
           </div>
           <ul className="flex text-black gap-5 font-medium justify-center items-center">
             <Link to="/">Home</Link>
-            <Link to="/auth">Auth</Link>
-            <Link to="/checkout">Checkout</Link>
+            <Link to="/checkout">Cart</Link>
+            {/* <Link to="/auth">Auth</Link> */}
           </ul>
 
           <div className="navbar-auth">
-            <Link to="/auth" className="btn btn-secondary">
-              Login
-            </Link>
-            <Link to="/auth" className="btn btn-primary">
-              Signup
-            </Link>
+            {!user ? (
+              <div className="navbar-auth-links">
+                <Link to="/auth" className="btn btn-secondary">
+                  Login
+                </Link>
+                <Link to="/auth" className="btn btn-primary">
+                  Signup
+                </Link>
+              </div>
+            ) : (
+              <div className="navbar-user">
+                <span className="navbar-gretting">Hello, {user.email}</span>
+                <button className="btn btn-secondary" onClick={logout}>
+                  Log Out
+                </button>
+              </div>
+            )}
           </div>
         </nav>
       </header>
