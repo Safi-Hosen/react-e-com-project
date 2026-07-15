@@ -81,3 +81,5 @@ export function useCart() {
   const context = useContext(CartContext);
   return context;
 }
+
+// hello there is a problem it the useCart(). need to fix it down
